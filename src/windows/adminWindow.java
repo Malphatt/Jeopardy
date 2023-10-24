@@ -443,6 +443,7 @@ public class adminWindow {
 					
 			adjustPanel.setBounds(0, 0, 1030, 540);
 			adjustPanel.setLayout(null);
+			adjustPanel.setVisible(false);
 			frame.getContentPane().add(adjustPanel);
 			
 				buttonBackAdjustScores.setBounds(10, 10, 160, 60);

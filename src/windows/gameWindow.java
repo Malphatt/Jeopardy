@@ -79,6 +79,7 @@ public class gameWindow {
 			
 		public final modelPanel finalPanel = new modelPanel();
 			private JLabel finalPanelTitle = new JLabel("Final Jeopardy");
+			public JLabel finalQuestionLabel = new JLabel("Question");
 			private final modelPanel finalPlayer1Answer1Panel = new modelPanel();
 			private final modelPanel finalPlayer1Answer1InnerPanel = new modelPanel();
 				public JLabel finalPlayer1Answer1Label = new JLabel("Answer");
@@ -424,6 +425,12 @@ public class gameWindow {
 			finalPanelTitle.setForeground(Color.decode("#e1b173"));
 			finalPanelTitle.setHorizontalAlignment(SwingConstants.CENTER);
 			finalPanel.add(finalPanelTitle);
+		
+			finalQuestionLabel.setBounds(740, 300, 990, 580);
+			finalQuestionLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 50));
+			finalQuestionLabel.setForeground(Color.decode("#e1b173"));
+			finalQuestionLabel.setHorizontalAlignment(SwingConstants.CENTER);
+			finalPanel.add(finalQuestionLabel);
 			
 			int innerPanelBorderThickness = 10;
 		

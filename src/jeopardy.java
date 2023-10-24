@@ -2117,6 +2117,7 @@ public class jeopardy {
  		adminWindow.finalAnswerTextBox.setText(questionSystem.getSavedAnswer(questionSystem.getCurrentTurnFinalPlayerNumber(), Q));
  		adminWindow.finalQuestionNumberTitle.setText(Integer.toString(questionSystem.getCurrentFinalQuestionId()));
  		adminWindow.finalQuestionLabel.setText("<html><center>" + questionSystem.getQuestion(Q) + "</center></html>");
+ 		gameWindow.finalQuestionLabel.setText("<html><center>" + questionSystem.getQuestion(Q) + "</center></html>");
 
 
  		adminWindow.finalRevealQuestionButtonBack.setVisible(questionSystem.getCurrentFinalQuestionId() > 1);
