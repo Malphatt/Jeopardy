@@ -27,7 +27,6 @@ public class roundedTextBox extends JTextField {
 	private Color textColor;
 	private int inset;
     
-    private boolean textFieldSuggestion = false;
     private List<String> items;
 	
 	public roundedTextBox() {
@@ -42,19 +41,6 @@ public class roundedTextBox extends JTextField {
 	
 	public roundedTextBox(String text) {
 		super(text);
-		setOpaque(false);
-        setHorizontalAlignment(SwingConstants.CENTER);
-        
-        color = Color.decode("#e1b173");
-        textColor = Color.decode("#38075d");
-        inset = 50; 
-        radius = getHeight();
-	}
-	
-	public roundedTextBox(boolean textFieldSuggestion) {
-		this.textFieldSuggestion = textFieldSuggestion;
-		clearAutocompleteItems();
-
 		setOpaque(false);
         setHorizontalAlignment(SwingConstants.CENTER);
         

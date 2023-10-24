@@ -56,6 +56,7 @@ public class adminWindow {
 		
 		
 		public final modelPanel gamePanel = new modelPanel();
+			public final roundedButton buttonAdjustScores = new roundedButton("Adjust Scores");
 			JLabel title = new JLabel("JEOPARDY");
 			public final roundedButton buttonC1 = new roundedButton("C1");
 				public final roundedButton buttonC1R1 = new roundedButton("100");
@@ -94,6 +95,19 @@ public class adminWindow {
 				public final roundedButton buttonC6R4 = new roundedButton("400");
 				public final roundedButton buttonC6R5 = new roundedButton("500");
 				
+		public final modelPanel adjustPanel = new modelPanel();
+			public final roundedButton buttonBackAdjustScores = new roundedButton("Back To Game");
+			public JLabel adjustPlayer1ScoreLabel = new JLabel("Player 1");
+			public roundedTextBox adjustPlayer1ScoreTextBox = new roundedTextBox("0");
+			public JLabel adjustPlayer2ScoreLabel = new JLabel("Player 2");
+			public roundedTextBox adjustPlayer2ScoreTextBox = new roundedTextBox("0");
+			public JLabel adjustPlayer3ScoreLabel = new JLabel("Player 3");
+			public roundedTextBox adjustPlayer3ScoreTextBox = new roundedTextBox("0");
+			public JLabel adjustPlayer4ScoreLabel = new JLabel("Player 4");
+			public roundedTextBox adjustPlayer4ScoreTextBox = new roundedTextBox("0");
+			public JLabel adjustPlayer5ScoreLabel = new JLabel("Player 5");
+			public roundedTextBox adjustPlayer5ScoreTextBox = new roundedTextBox("0");
+				
 		public final modelPanel questionPanel = new modelPanel();
 			private modelPanel answerLabelPanel = new modelPanel();
 				public JLabel answerLabel = new JLabel("Answer");
@@ -127,7 +141,7 @@ public class adminWindow {
 			private final modelPanel finalQuestionPanel = new modelPanel();
 				public JLabel finalQuestionLabel = new JLabel("Question");
 				public roundedButton finalQuestionButtonBack = new roundedButton("Back");
-				public roundedTextBox finalAnswerTextBox = new roundedTextBox(true);
+				public roundedTextBox finalAnswerTextBox = new roundedTextBox();
 				public roundedButton finalQuestionButtonContinue = new roundedButton("Continue");
 				
 
@@ -288,6 +302,13 @@ public class adminWindow {
 			gamePanel.setLayout(null);
 			frame.getContentPane().add(gamePanel);
 			
+				buttonAdjustScores.setBounds(10, 10, 160, 60);
+				buttonAdjustScores.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+				buttonAdjustScores.setColor(Color.decode("#38075d"));
+				buttonAdjustScores.setBorderColor(Color.decode("#e1b173"));
+				buttonAdjustScores.setTextColor(Color.decode("#e1b173"));
+				gamePanel.add(buttonAdjustScores);
+			
 				title.setBounds(10, 11, 1010, 100);
 				title.setFont(new Font("Comic Sans MS", Font.BOLD, 50));
 				title.setForeground(Color.decode("#e1b173"));
@@ -419,6 +440,62 @@ public class adminWindow {
 					
 					buttonC6R5.setBounds(860, 470, 160, 60);
 					gamePanel.add(buttonC6R5);
+					
+			adjustPanel.setBounds(0, 0, 1030, 540);
+			adjustPanel.setLayout(null);
+			frame.getContentPane().add(adjustPanel);
+			
+				buttonBackAdjustScores.setBounds(10, 10, 160, 60);
+				buttonBackAdjustScores.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+				buttonBackAdjustScores.setColor(Color.decode("#38075d"));
+				buttonBackAdjustScores.setBorderColor(Color.decode("#e1b173"));
+				buttonBackAdjustScores.setTextColor(Color.decode("#e1b173"));
+				adjustPanel.add(buttonBackAdjustScores);
+				
+				adjustPlayer1ScoreLabel.setBounds(50, 100, 440, 60);
+				adjustPlayer1ScoreLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+				adjustPlayer1ScoreLabel.setForeground(Color.decode("#e1b173"));
+				adjustPlayer1ScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+				adjustPanel.add(adjustPlayer1ScoreLabel);
+				
+				adjustPlayer1ScoreTextBox.setBounds(540, 100, 440, 60);
+				adjustPanel.add(adjustPlayer1ScoreTextBox);
+				
+				adjustPlayer2ScoreLabel.setBounds(50, 170, 440, 60);
+				adjustPlayer2ScoreLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+				adjustPlayer2ScoreLabel.setForeground(Color.decode("#e1b173"));
+				adjustPlayer2ScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+				adjustPanel.add(adjustPlayer2ScoreLabel);
+				
+				adjustPlayer2ScoreTextBox.setBounds(540, 170, 440, 60);
+				adjustPanel.add(adjustPlayer2ScoreTextBox);
+				
+				adjustPlayer3ScoreLabel.setBounds(50, 240, 440, 60);
+				adjustPlayer3ScoreLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+				adjustPlayer3ScoreLabel.setForeground(Color.decode("#e1b173"));
+				adjustPlayer3ScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+				adjustPanel.add(adjustPlayer3ScoreLabel);
+				
+				adjustPlayer3ScoreTextBox.setBounds(540, 240, 440, 60);
+				adjustPanel.add(adjustPlayer3ScoreTextBox);
+				
+				adjustPlayer4ScoreLabel.setBounds(50, 310, 440, 60);
+				adjustPlayer4ScoreLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+				adjustPlayer4ScoreLabel.setForeground(Color.decode("#e1b173"));
+				adjustPlayer4ScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+				adjustPanel.add(adjustPlayer4ScoreLabel);
+				
+				adjustPlayer4ScoreTextBox.setBounds(540, 310, 440, 60);
+				adjustPanel.add(adjustPlayer4ScoreTextBox);
+				
+				adjustPlayer5ScoreLabel.setBounds(50, 380, 440, 60);
+				adjustPlayer5ScoreLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+				adjustPlayer5ScoreLabel.setForeground(Color.decode("#e1b173"));
+				adjustPlayer5ScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+				adjustPanel.add(adjustPlayer5ScoreLabel);
+				
+				adjustPlayer5ScoreTextBox.setBounds(540, 380, 440, 60);
+				adjustPanel.add(adjustPlayer5ScoreTextBox);
 					
 			questionPanel.setBounds(0, 0, 1030, 540);
 			questionPanel.setLayout(null);

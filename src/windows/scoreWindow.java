@@ -233,7 +233,26 @@ public class scoreWindow {
 			System.out.println("null player (Name)");
 		}
 	}
-
+	
+	public void setPlayerScore(int player, int score) {
+		if (player==1) {
+			player1Score.setText(Integer.toString(score));
+		} else
+		if (player==2) {
+			player2Score.setText(Integer.toString(score));
+		} else
+		if (player==3) {
+			player3Score.setText(Integer.toString(score));
+		} else
+		if (player==4) {
+			player4Score.setText(Integer.toString(score));
+		} else
+		if (player==5) {
+			player5Score.setText(Integer.toString(score));
+		} else {
+			System.out.println("null player (Add Score)");
+		}
+	}
 	public int getPlayerScore(int player) {
 		if (player==1) {
 			return Integer.parseInt(player1Score.getText());

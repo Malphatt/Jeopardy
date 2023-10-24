@@ -6,8 +6,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -181,257 +179,305 @@ public class jeopardy {
 			}
 		});
 		
-	//C1
-		adminWindow.buttonC1R1.addMouseListener(new MouseAdapter() {
+		//Game
+		adminWindow.buttonAdjustScores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC1R1.isSelectable()) return;
-
-				showQuestion(1, 1);
+				if (!adminWindow.buttonAdjustScores.isSelectable()) return;
+				
+				adminWindow.adjustPlayer1ScoreLabel.setText(scoreWindow.getPlayerName(1) + "'s Score:");
+				adminWindow.adjustPlayer2ScoreLabel.setText(scoreWindow.getPlayerName(2) + "'s Score:");
+				adminWindow.adjustPlayer3ScoreLabel.setText(scoreWindow.getPlayerName(3) + "'s Score:");
+				adminWindow.adjustPlayer4ScoreLabel.setText(scoreWindow.getPlayerName(4) + "'s Score:");
+				adminWindow.adjustPlayer5ScoreLabel.setText(scoreWindow.getPlayerName(5) + "'s Score:");
+				
+				adminWindow.adjustPlayer1ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(1)));
+				adminWindow.adjustPlayer2ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(2)));
+				adminWindow.adjustPlayer3ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(3)));
+				adminWindow.adjustPlayer4ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(4)));
+				adminWindow.adjustPlayer5ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(5)));
+				
+				adminWindow.adjustPanel.setVisible(true);
+				adminWindow.gamePanel.setVisible(false);
 			}
 		});
-		adminWindow.buttonC1R2.addMouseListener(new MouseAdapter() {
+		adminWindow.buttonBackAdjustScores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC1R2.isSelectable()) return;
+				if (!adminWindow.buttonBackAdjustScores.isSelectable()) return;
 
-				showQuestion(1, 2);
-			}
-		});
-		adminWindow.buttonC1R3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC1R3.isSelectable()) return;
-
-				showQuestion(1, 3);
-			}
-		});
-		adminWindow.buttonC1R4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC1R4.isSelectable()) return;
-
-				showQuestion(1, 4);
-			}
-		});
-		adminWindow.buttonC1R5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC1R5.isSelectable()) return;
-
-				showQuestion(1, 5);
-			}
-		});
-		
-	//C2
-		adminWindow.buttonC2R1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC2R1.isSelectable()) return;
-
-				showQuestion(2, 1);
-			}
-		});
-		adminWindow.buttonC2R2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC2R2.isSelectable()) return;
-
-				showQuestion(2, 2);
-			}
-		});
-		adminWindow.buttonC2R3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC2R3.isSelectable()) return;
-
-				showQuestion(2, 3);
-			}
-		});
-		adminWindow.buttonC2R4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC2R4.isSelectable()) return;
-
-				showQuestion(2, 4);
-			}
-		});
-		adminWindow.buttonC2R5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC2R5.isSelectable()) return;
-
-				showQuestion(2, 5);
+				if (
+						!adminWindow.adjustPlayer1ScoreTextBox.getText().equals("") &&
+						!adminWindow.adjustPlayer2ScoreTextBox.getText().equals("") &&
+						!adminWindow.adjustPlayer3ScoreTextBox.getText().equals("") &&
+						!adminWindow.adjustPlayer4ScoreTextBox.getText().equals("") &&
+						!adminWindow.adjustPlayer5ScoreTextBox.getText().equals("")
+				) {
+					try {
+						scoreWindow.setPlayerScore(1, Integer.parseInt(adminWindow.adjustPlayer1ScoreTextBox.getText()));
+						scoreWindow.setPlayerScore(2, Integer.parseInt(adminWindow.adjustPlayer2ScoreTextBox.getText()));
+						scoreWindow.setPlayerScore(3, Integer.parseInt(adminWindow.adjustPlayer3ScoreTextBox.getText()));
+						scoreWindow.setPlayerScore(4, Integer.parseInt(adminWindow.adjustPlayer4ScoreTextBox.getText()));
+						scoreWindow.setPlayerScore(5, Integer.parseInt(adminWindow.adjustPlayer5ScoreTextBox.getText()));
+						
+						adminWindow.gamePanel.setVisible(true);
+						adminWindow.adjustPanel.setVisible(false);
+					} catch (Exception e1) {return;}
+				}
 			}
 		});
 		
-	//C3
-		adminWindow.buttonC3R1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC3R1.isSelectable()) return;
-
-				showQuestion(3, 1);
-			}
-		});
-		adminWindow.buttonC3R2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC3R2.isSelectable()) return;
-
-				showQuestion(3, 2);
-			}
-		});
-		adminWindow.buttonC3R3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC3R3.isSelectable()) return;
-
-				showQuestion(3, 3);
-			}
-		});
-		adminWindow.buttonC3R4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC3R4.isSelectable()) return;
-
-				showQuestion(3, 4);
-			}
-		});
-		adminWindow.buttonC3R5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC3R5.isSelectable()) return;
-
-				showQuestion(3, 5);
-			}
-		});
-		
-	//C4
-		adminWindow.buttonC4R1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC4R1.isSelectable()) return;
-
-				showQuestion(4, 1);
-			}
-		});
-		adminWindow.buttonC4R2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC4R2.isSelectable()) return;
-
-				showQuestion(4, 2);
-			}
-		});
-		adminWindow.buttonC4R3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC4R3.isSelectable()) return;
-
-				showQuestion(4, 3);
-			}
-		});
-		adminWindow.buttonC4R4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC4R4.isSelectable()) return;
-
-				showQuestion(4, 4);
-			}
-		});
-		adminWindow.buttonC4R5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC4R5.isSelectable()) return;
-
-				showQuestion(4, 5);
-			}
-		});
-		
-	//C5
-		adminWindow.buttonC5R1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC5R1.isSelectable()) return;
-
-				showQuestion(5, 1);
-			}
-		});
-		adminWindow.buttonC5R2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC5R2.isSelectable()) return;
-
-				showQuestion(5, 2);
-			}
-		});
-		adminWindow.buttonC5R3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC5R3.isSelectable()) return;
-
-				showQuestion(5, 3);
-			}
-		});
-		adminWindow.buttonC5R4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC5R4.isSelectable()) return;
-
-				showQuestion(5, 4);
-			}
-		});
-		adminWindow.buttonC5R5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC5R5.isSelectable()) return;
-
-				showQuestion(5, 5);
-			}
-		});
-		
-	//C6
-		adminWindow.buttonC6R1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC6R1.isSelectable()) return;
-
-				showQuestion(6, 1);
-			}
-		});
-		adminWindow.buttonC6R2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC6R2.isSelectable()) return;
-
-				showQuestion(6, 2);
-			}
-		});
-		adminWindow.buttonC6R3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC6R3.isSelectable()) return;
-
-				showQuestion(6, 3);
-			}
-		});
-		adminWindow.buttonC6R4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC6R4.isSelectable()) return;
-
-				showQuestion(6, 4);
-			}
-		});
-		adminWindow.buttonC6R5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				if (!adminWindow.buttonC6R5.isSelectable()) return;
-
-				showQuestion(6, 5);
-			}
-		});
+		//C1
+			adminWindow.buttonC1R1.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC1R1.isSelectable()) return;
+	
+					showQuestion(1, 1);
+				}
+			});
+			adminWindow.buttonC1R2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC1R2.isSelectable()) return;
+	
+					showQuestion(1, 2);
+				}
+			});
+			adminWindow.buttonC1R3.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC1R3.isSelectable()) return;
+	
+					showQuestion(1, 3);
+				}
+			});
+			adminWindow.buttonC1R4.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC1R4.isSelectable()) return;
+	
+					showQuestion(1, 4);
+				}
+			});
+			adminWindow.buttonC1R5.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC1R5.isSelectable()) return;
+	
+					showQuestion(1, 5);
+				}
+			});
+			
+		//C2
+			adminWindow.buttonC2R1.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC2R1.isSelectable()) return;
+	
+					showQuestion(2, 1);
+				}
+			});
+			adminWindow.buttonC2R2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC2R2.isSelectable()) return;
+	
+					showQuestion(2, 2);
+				}
+			});
+			adminWindow.buttonC2R3.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC2R3.isSelectable()) return;
+	
+					showQuestion(2, 3);
+				}
+			});
+			adminWindow.buttonC2R4.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC2R4.isSelectable()) return;
+	
+					showQuestion(2, 4);
+				}
+			});
+			adminWindow.buttonC2R5.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC2R5.isSelectable()) return;
+	
+					showQuestion(2, 5);
+				}
+			});
+			
+		//C3
+			adminWindow.buttonC3R1.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC3R1.isSelectable()) return;
+	
+					showQuestion(3, 1);
+				}
+			});
+			adminWindow.buttonC3R2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC3R2.isSelectable()) return;
+	
+					showQuestion(3, 2);
+				}
+			});
+			adminWindow.buttonC3R3.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC3R3.isSelectable()) return;
+	
+					showQuestion(3, 3);
+				}
+			});
+			adminWindow.buttonC3R4.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC3R4.isSelectable()) return;
+	
+					showQuestion(3, 4);
+				}
+			});
+			adminWindow.buttonC3R5.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC3R5.isSelectable()) return;
+	
+					showQuestion(3, 5);
+				}
+			});
+			
+		//C4
+			adminWindow.buttonC4R1.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC4R1.isSelectable()) return;
+	
+					showQuestion(4, 1);
+				}
+			});
+			adminWindow.buttonC4R2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC4R2.isSelectable()) return;
+	
+					showQuestion(4, 2);
+				}
+			});
+			adminWindow.buttonC4R3.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC4R3.isSelectable()) return;
+	
+					showQuestion(4, 3);
+				}
+			});
+			adminWindow.buttonC4R4.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC4R4.isSelectable()) return;
+	
+					showQuestion(4, 4);
+				}
+			});
+			adminWindow.buttonC4R5.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC4R5.isSelectable()) return;
+	
+					showQuestion(4, 5);
+				}
+			});
+			
+		//C5
+			adminWindow.buttonC5R1.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC5R1.isSelectable()) return;
+	
+					showQuestion(5, 1);
+				}
+			});
+			adminWindow.buttonC5R2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC5R2.isSelectable()) return;
+	
+					showQuestion(5, 2);
+				}
+			});
+			adminWindow.buttonC5R3.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC5R3.isSelectable()) return;
+	
+					showQuestion(5, 3);
+				}
+			});
+			adminWindow.buttonC5R4.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC5R4.isSelectable()) return;
+	
+					showQuestion(5, 4);
+				}
+			});
+			adminWindow.buttonC5R5.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC5R5.isSelectable()) return;
+	
+					showQuestion(5, 5);
+				}
+			});
+			
+		//C6
+			adminWindow.buttonC6R1.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC6R1.isSelectable()) return;
+	
+					showQuestion(6, 1);
+				}
+			});
+			adminWindow.buttonC6R2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC6R2.isSelectable()) return;
+	
+					showQuestion(6, 2);
+				}
+			});
+			adminWindow.buttonC6R3.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC6R3.isSelectable()) return;
+	
+					showQuestion(6, 3);
+				}
+			});
+			adminWindow.buttonC6R4.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC6R4.isSelectable()) return;
+	
+					showQuestion(6, 4);
+				}
+			});
+			adminWindow.buttonC6R5.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if (!adminWindow.buttonC6R5.isSelectable()) return;
+	
+					showQuestion(6, 5);
+				}
+			});
 		
 	//Question Panel
 		adminWindow.questionButtonShowAnswer.addMouseListener(new MouseAdapter() {
@@ -1815,39 +1861,39 @@ public class jeopardy {
  			//Game Conditions
  	 		if (					game == 0					) {setGame(1);}
  	 		if (	!adminWindow.buttonC1R1.isSelectable() &&
-// 	 				!adminWindow.buttonC1R2.isSelectable() &&
-// 	 				!adminWindow.buttonC1R3.isSelectable() &&
-// 	 				!adminWindow.buttonC1R4.isSelectable() &&
-// 	 				!adminWindow.buttonC1R5.isSelectable() &&
-// 	 				
-// 	 				!adminWindow.buttonC2R1.isSelectable() &&
-// 	 				!adminWindow.buttonC2R2.isSelectable() &&
-// 	 				!adminWindow.buttonC2R3.isSelectable() &&
-// 	 				!adminWindow.buttonC2R4.isSelectable() &&
-// 	 				!adminWindow.buttonC2R5.isSelectable() &&
-// 	 				
-// 	 				!adminWindow.buttonC3R1.isSelectable() &&
-// 	 				!adminWindow.buttonC3R2.isSelectable() &&
-// 	 				!adminWindow.buttonC3R3.isSelectable() &&
-// 	 				!adminWindow.buttonC3R4.isSelectable() &&
-// 	 				!adminWindow.buttonC3R5.isSelectable() &&
-// 	 				
-// 	 				!adminWindow.buttonC4R1.isSelectable() &&
-// 	 				!adminWindow.buttonC4R2.isSelectable() &&
-// 	 				!adminWindow.buttonC4R3.isSelectable() &&
-// 	 				!adminWindow.buttonC4R4.isSelectable() &&
-// 	 				!adminWindow.buttonC4R5.isSelectable() &&
-// 	 				
-// 	 				!adminWindow.buttonC5R1.isSelectable() &&
-// 	 				!adminWindow.buttonC5R2.isSelectable() &&
-// 	 				!adminWindow.buttonC5R3.isSelectable() &&
-// 	 				!adminWindow.buttonC5R4.isSelectable() &&
-// 	 				!adminWindow.buttonC5R5.isSelectable() &&
-// 	 				
-// 	 				!adminWindow.buttonC6R1.isSelectable() &&
-// 	 				!adminWindow.buttonC6R2.isSelectable() &&
-// 	 				!adminWindow.buttonC6R3.isSelectable() &&
-// 	 				!adminWindow.buttonC6R4.isSelectable() &&
+ 	 				!adminWindow.buttonC1R2.isSelectable() &&
+ 	 				!adminWindow.buttonC1R3.isSelectable() &&
+ 	 				!adminWindow.buttonC1R4.isSelectable() &&
+ 	 				!adminWindow.buttonC1R5.isSelectable() &&
+ 	 				
+ 	 				!adminWindow.buttonC2R1.isSelectable() &&
+ 	 				!adminWindow.buttonC2R2.isSelectable() &&
+ 	 				!adminWindow.buttonC2R3.isSelectable() &&
+ 	 				!adminWindow.buttonC2R4.isSelectable() &&
+ 	 				!adminWindow.buttonC2R5.isSelectable() &&
+ 	 				
+ 	 				!adminWindow.buttonC3R1.isSelectable() &&
+ 	 				!adminWindow.buttonC3R2.isSelectable() &&
+ 	 				!adminWindow.buttonC3R3.isSelectable() &&
+ 	 				!adminWindow.buttonC3R4.isSelectable() &&
+ 	 				!adminWindow.buttonC3R5.isSelectable() &&
+ 	 				
+ 	 				!adminWindow.buttonC4R1.isSelectable() &&
+ 	 				!adminWindow.buttonC4R2.isSelectable() &&
+ 	 				!adminWindow.buttonC4R3.isSelectable() &&
+ 	 				!adminWindow.buttonC4R4.isSelectable() &&
+ 	 				!adminWindow.buttonC4R5.isSelectable() &&
+ 	 				
+ 	 				!adminWindow.buttonC5R1.isSelectable() &&
+ 	 				!adminWindow.buttonC5R2.isSelectable() &&
+ 	 				!adminWindow.buttonC5R3.isSelectable() &&
+ 	 				!adminWindow.buttonC5R4.isSelectable() &&
+ 	 				!adminWindow.buttonC5R5.isSelectable() &&
+ 	 				
+ 	 				!adminWindow.buttonC6R1.isSelectable() &&
+ 	 				!adminWindow.buttonC6R2.isSelectable() &&
+ 	 				!adminWindow.buttonC6R3.isSelectable() &&
+ 	 				!adminWindow.buttonC6R4.isSelectable() &&
  	 				!adminWindow.buttonC6R5.isSelectable()		) {setGame(++game);}
  		} else
  		if (updater.getState("Question") || updater.getState("TiebreakerQuestion")) {
