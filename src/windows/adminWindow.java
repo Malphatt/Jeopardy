@@ -30,6 +30,8 @@ public class adminWindow {
 					public JComboBox<?> selectGame1Category4 = new JComboBox<Object>(noneList);
 					public JComboBox<?> selectGame1Category5 = new JComboBox<Object>(noneList);
 					public JComboBox<?> selectGame1Category6 = new JComboBox<Object>(noneList);
+					
+				public final roundedButton buttonRandomiseCategories = new roundedButton("Randomise");
 				
 				public final JLabel selectGame2Heading = new JLabel("Game 2");
 					public JComboBox<?> selectGame2Category1 = new JComboBox<Object>(noneList);
@@ -212,6 +214,12 @@ public class adminWindow {
 					
 					selectGame1Category6.setBounds(410, 150, 160, 30);
 					menuPanel.add(selectGame1Category6);
+					
+				buttonRandomiseCategories.setBounds(420, 190, 140, 30);
+				buttonRandomiseCategories.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+				buttonRandomiseCategories.setColor(Color.decode("#e1b173"));
+				buttonRandomiseCategories.setTextColor(Color.decode("#38075d"));
+				menuPanel.add(buttonRandomiseCategories);
 				
 				selectGame2Heading.setBounds(60, 190, 520, 30);
 				selectGame2Heading.setFont(new Font("Comic Sans MS", Font.BOLD, 20));

@@ -6,6 +6,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -70,6 +74,23 @@ public class jeopardy {
 				gameWindow.frame.setVisible(false);
 				scoreWindow.frame.setVisible(false);
 				adminWindow.frame.setVisible(false);
+			}
+		});
+		
+		adminWindow.buttonRandomiseCategories.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				int totalCategories = adminWindow.selectGame1Category1.getItemCount();
+				
+				List<Object> randomisedArray = new ArrayList<Object>();
+				for (int i = 0; i < totalCategories; i++) randomisedArray.add(i);
+				Collections.shuffle(randomisedArray);
+				
+				adminWindow.selectGame1Category1.setSelectedIndex((int) randomisedArray.get(0));	adminWindow.selectGame1Category2.setSelectedIndex((int) randomisedArray.get(1));	adminWindow.selectGame1Category3.setSelectedIndex((int) randomisedArray.get(2));
+				adminWindow.selectGame1Category4.setSelectedIndex((int) randomisedArray.get(3));	adminWindow.selectGame1Category5.setSelectedIndex((int) randomisedArray.get(4));	adminWindow.selectGame1Category6.setSelectedIndex((int) randomisedArray.get(5));
+
+				adminWindow.selectGame2Category1.setSelectedIndex((int) randomisedArray.get(6));	adminWindow.selectGame2Category2.setSelectedIndex((int) randomisedArray.get(7));	adminWindow.selectGame2Category3.setSelectedIndex((int) randomisedArray.get(8));
+				adminWindow.selectGame2Category4.setSelectedIndex((int) randomisedArray.get(9));	adminWindow.selectGame2Category5.setSelectedIndex((int) randomisedArray.get(10));	adminWindow.selectGame2Category6.setSelectedIndex((int) randomisedArray.get(11));
 			}
 		});
 		
