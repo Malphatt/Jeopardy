@@ -86,11 +86,13 @@ public class jeopardy {
 				for (int i = 0; i < totalCategories; i++) randomisedArray.add(i);
 				Collections.shuffle(randomisedArray);
 				
-				adminWindow.selectGame1Category1.setSelectedIndex((int) randomisedArray.get(0));	adminWindow.selectGame1Category2.setSelectedIndex((int) randomisedArray.get(1));	adminWindow.selectGame1Category3.setSelectedIndex((int) randomisedArray.get(2));
-				adminWindow.selectGame1Category4.setSelectedIndex((int) randomisedArray.get(3));	adminWindow.selectGame1Category5.setSelectedIndex((int) randomisedArray.get(4));	adminWindow.selectGame1Category6.setSelectedIndex((int) randomisedArray.get(5));
-
-				adminWindow.selectGame2Category1.setSelectedIndex((int) randomisedArray.get(6));	adminWindow.selectGame2Category2.setSelectedIndex((int) randomisedArray.get(7));	adminWindow.selectGame2Category3.setSelectedIndex((int) randomisedArray.get(8));
-				adminWindow.selectGame2Category4.setSelectedIndex((int) randomisedArray.get(9));	adminWindow.selectGame2Category5.setSelectedIndex((int) randomisedArray.get(10));	adminWindow.selectGame2Category6.setSelectedIndex((int) randomisedArray.get(11));
+				try {
+					adminWindow.selectGame1Category1.setSelectedIndex((int) randomisedArray.get(0));	adminWindow.selectGame1Category2.setSelectedIndex((int) randomisedArray.get(1));	adminWindow.selectGame1Category3.setSelectedIndex((int) randomisedArray.get(2));
+					adminWindow.selectGame1Category4.setSelectedIndex((int) randomisedArray.get(3));	adminWindow.selectGame1Category5.setSelectedIndex((int) randomisedArray.get(4));	adminWindow.selectGame1Category6.setSelectedIndex((int) randomisedArray.get(5));
+	
+					adminWindow.selectGame2Category1.setSelectedIndex((int) randomisedArray.get(6));	adminWindow.selectGame2Category2.setSelectedIndex((int) randomisedArray.get(7));	adminWindow.selectGame2Category3.setSelectedIndex((int) randomisedArray.get(8));
+					adminWindow.selectGame2Category4.setSelectedIndex((int) randomisedArray.get(9));	adminWindow.selectGame2Category5.setSelectedIndex((int) randomisedArray.get(10));	adminWindow.selectGame2Category6.setSelectedIndex((int) randomisedArray.get(11));
+				} catch (Exception e1) {}
 			}
 		});
 		
@@ -134,20 +136,25 @@ public class jeopardy {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				if (updater.getState("QuestionSelector")) {
-					String[] gameCategories = { 	adminWindow.selectGame1Category1.getSelectedItem().toString(),
-													adminWindow.selectGame1Category2.getSelectedItem().toString(),
-													adminWindow.selectGame1Category3.getSelectedItem().toString(),
-													adminWindow.selectGame1Category4.getSelectedItem().toString(),
-													adminWindow.selectGame1Category5.getSelectedItem().toString(),
-													adminWindow.selectGame1Category6.getSelectedItem().toString(),
-													
-													adminWindow.selectGame2Category1.getSelectedItem().toString(),
-													adminWindow.selectGame2Category2.getSelectedItem().toString(),
-													adminWindow.selectGame2Category3.getSelectedItem().toString(),
-													adminWindow.selectGame2Category4.getSelectedItem().toString(),
-													adminWindow.selectGame2Category5.getSelectedItem().toString(),
-													adminWindow.selectGame2Category6.getSelectedItem().toString()
-													};
+					String[] gameCategories = new String[12];
+					
+					try {
+						gameCategories[0] = adminWindow.selectGame1Category1.getSelectedItem().toString();
+						gameCategories[1] = adminWindow.selectGame1Category2.getSelectedItem().toString();
+						gameCategories[2] = adminWindow.selectGame1Category3.getSelectedItem().toString();
+						gameCategories[3] = adminWindow.selectGame1Category4.getSelectedItem().toString();
+						gameCategories[4] = adminWindow.selectGame1Category5.getSelectedItem().toString();
+						gameCategories[5] = adminWindow.selectGame1Category6.getSelectedItem().toString();
+
+						gameCategories[6] = adminWindow.selectGame2Category1.getSelectedItem().toString();
+						gameCategories[7] = adminWindow.selectGame2Category2.getSelectedItem().toString();
+						gameCategories[8] = adminWindow.selectGame2Category3.getSelectedItem().toString();
+						gameCategories[9] = adminWindow.selectGame2Category4.getSelectedItem().toString();
+						gameCategories[10] = adminWindow.selectGame2Category5.getSelectedItem().toString();
+						gameCategories[11] = adminWindow.selectGame2Category6.getSelectedItem().toString();
+						
+						adminWindow.selectFinalJeopardy.getSelectedItem().toString();
+					} catch (Exception e1) {return;}
 					
 				// Check to see if the chosen categories are unique
 					boolean uniqueGameCategories = true;
@@ -1780,42 +1787,42 @@ public class jeopardy {
  				adminWindow.selectGame1Category1 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame1Category1.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame1Category1);
- 				adminWindow.selectGame1Category1.setSelectedIndex(0);
+ 				try {adminWindow.selectGame1Category1.setSelectedIndex(0);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame1Category2.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame1Category2);
  				adminWindow.selectGame1Category2 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame1Category2.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame1Category2);
- 				adminWindow.selectGame1Category2.setSelectedIndex(1);
+ 				try {adminWindow.selectGame1Category2.setSelectedIndex(1);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame1Category3.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame1Category3);
  				adminWindow.selectGame1Category3 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame1Category3.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame1Category3);
- 				adminWindow.selectGame1Category3.setSelectedIndex(2);
+ 				try {adminWindow.selectGame1Category3.setSelectedIndex(2);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame1Category4.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame1Category4);
  				adminWindow.selectGame1Category4 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame1Category4.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame1Category4);
- 				adminWindow.selectGame1Category4.setSelectedIndex(3);
+ 				try {adminWindow.selectGame1Category4.setSelectedIndex(3);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame1Category5.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame1Category5);
  				adminWindow.selectGame1Category5 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame1Category5.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame1Category5);
- 				adminWindow.selectGame1Category5.setSelectedIndex(4);
+ 				try {adminWindow.selectGame1Category5.setSelectedIndex(4);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame1Category6.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame1Category6);
  				adminWindow.selectGame1Category6 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame1Category6.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame1Category6);
- 				adminWindow.selectGame1Category6.setSelectedIndex(5);
+ 				try {adminWindow.selectGame1Category6.setSelectedIndex(5);} catch (Exception e) {}
  				
  			//Game 2
  				tempBounds = adminWindow.selectGame2Category1.getBounds();
@@ -1823,42 +1830,42 @@ public class jeopardy {
  				adminWindow.selectGame2Category1 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame2Category1.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame2Category1);
- 				adminWindow.selectGame2Category1.setSelectedIndex(6);
+ 				try {adminWindow.selectGame2Category1.setSelectedIndex(6);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame2Category2.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame2Category2);
  				adminWindow.selectGame2Category2 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame2Category2.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame2Category2);
- 				adminWindow.selectGame2Category2.setSelectedIndex(7);
+ 				try {adminWindow.selectGame2Category2.setSelectedIndex(7);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame2Category3.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame2Category3);
  				adminWindow.selectGame2Category3 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame2Category3.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame2Category3);
- 				adminWindow.selectGame2Category3.setSelectedIndex(8);
+ 				try {adminWindow.selectGame2Category3.setSelectedIndex(8);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame2Category4.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame2Category4);
  				adminWindow.selectGame2Category4 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame2Category4.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame2Category4);
- 				adminWindow.selectGame2Category4.setSelectedIndex(9);
+ 				try {adminWindow.selectGame2Category4.setSelectedIndex(9);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame2Category5.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame2Category5);
  				adminWindow.selectGame2Category5 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame2Category5.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame2Category5);
- 				adminWindow.selectGame2Category5.setSelectedIndex(10);
+ 				try {adminWindow.selectGame2Category5.setSelectedIndex(10);} catch (Exception e) {}
 
  				tempBounds = adminWindow.selectGame2Category6.getBounds();
  				adminWindow.menuPanel.remove(adminWindow.selectGame2Category6);
  				adminWindow.selectGame2Category6 = new JComboBox<Object>(questionSystem.getCategoryNames());
  				adminWindow.selectGame2Category6.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectGame2Category6);
- 				adminWindow.selectGame2Category6.setSelectedIndex(11);
+ 				try {adminWindow.selectGame2Category6.setSelectedIndex(11);} catch (Exception e) {}
  				
  			//Final Jeopardy
  				tempBounds = adminWindow.selectFinalJeopardy.getBounds();
@@ -1866,7 +1873,7 @@ public class jeopardy {
  				adminWindow.selectFinalJeopardy = new JComboBox<Object>(questionSystem.getFinalCategoryNames());
  				adminWindow.selectFinalJeopardy.setBounds(tempBounds);
  				adminWindow.menuPanel.add(adminWindow.selectFinalJeopardy);
- 				adminWindow.selectFinalJeopardy.setSelectedIndex(0);
+ 				try {adminWindow.selectFinalJeopardy.setSelectedIndex(0);} catch (Exception e) {}
  			}
  			
  	 		if (updater.getState("PlayerNames") && scoreWindow.getPlayerCount() > 3) {
@@ -2056,6 +2063,8 @@ public class jeopardy {
  		adminWindow.selectGame1Category4.setVisible(updater.getState("QuestionSelector"));
  		adminWindow.selectGame1Category5.setVisible(updater.getState("QuestionSelector"));
  		adminWindow.selectGame1Category6.setVisible(updater.getState("QuestionSelector"));
+
+ 		adminWindow.buttonRandomiseCategories.setVisible(updater.getState("QuestionSelector"));
  		
  		adminWindow.selectGame2Heading.setVisible(updater.getState("QuestionSelector"));
  		adminWindow.selectGame2Category1.setVisible(updater.getState("QuestionSelector"));
