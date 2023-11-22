@@ -111,6 +111,7 @@ public class adminWindow {
 			public roundedTextBox adjustPlayer5ScoreTextBox = new roundedTextBox("0");
 				
 		public final modelPanel questionPanel = new modelPanel();
+			public final roundedButton questionButtonAdjustScores = new roundedButton("Adjust Scores");
 			private modelPanel answerLabelPanel = new modelPanel();
 				public JLabel answerLabel = new JLabel("Answer");
 				public roundedButton questionButtonShowAnswer = new roundedButton("Show Answer");
@@ -509,6 +510,13 @@ public class adminWindow {
 			questionPanel.setBounds(0, 0, 1030, 540);
 			questionPanel.setLayout(null);
 			frame.getContentPane().add(questionPanel);
+			
+				questionButtonAdjustScores.setBounds(10, 10, 160, 50);
+				questionButtonAdjustScores.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+				questionButtonAdjustScores.setColor(Color.decode("#38075d"));
+				questionButtonAdjustScores.setBorderColor(Color.decode("#e1b173"));
+				questionButtonAdjustScores.setTextColor(Color.decode("#e1b173"));
+				questionPanel.add(questionButtonAdjustScores);
 			
 				answerLabelPanel.setBounds(10, 70, 1010, 325);
 				answerLabelPanel.setLayout(null);

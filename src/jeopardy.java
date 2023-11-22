@@ -248,7 +248,8 @@ public class jeopardy {
 						scoreWindow.setPlayerScore(4, Integer.parseInt(adminWindow.adjustPlayer4ScoreTextBox.getText()));
 						scoreWindow.setPlayerScore(5, Integer.parseInt(adminWindow.adjustPlayer5ScoreTextBox.getText()));
 						
-						adminWindow.gamePanel.setVisible(true);
+						adminWindow.gamePanel.setVisible(updater.getState("Game"));
+						adminWindow.questionPanel.setVisible(updater.getState("Question") || updater.getState("Answer"));
 						adminWindow.adjustPanel.setVisible(false);
 					} catch (Exception e1) {return;}
 				}
@@ -508,6 +509,28 @@ public class jeopardy {
 			});
 		
 	//Question Panel
+		adminWindow.questionButtonAdjustScores.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				if (!adminWindow.questionButtonAdjustScores.isSelectable()) return;
+				
+				adminWindow.adjustPlayer1ScoreLabel.setText(scoreWindow.getPlayerName(1) + "'s Score:");
+				adminWindow.adjustPlayer2ScoreLabel.setText(scoreWindow.getPlayerName(2) + "'s Score:");
+				adminWindow.adjustPlayer3ScoreLabel.setText(scoreWindow.getPlayerName(3) + "'s Score:");
+				adminWindow.adjustPlayer4ScoreLabel.setText(scoreWindow.getPlayerName(4) + "'s Score:");
+				adminWindow.adjustPlayer5ScoreLabel.setText(scoreWindow.getPlayerName(5) + "'s Score:");
+				
+				adminWindow.adjustPlayer1ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(1)));
+				adminWindow.adjustPlayer2ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(2)));
+				adminWindow.adjustPlayer3ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(3)));
+				adminWindow.adjustPlayer4ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(4)));
+				adminWindow.adjustPlayer5ScoreTextBox.setText(Integer.toString(scoreWindow.getPlayerScore(5)));
+				
+				adminWindow.adjustPanel.setVisible(true);
+				adminWindow.questionPanel.setVisible(false);
+			}
+		});
+		
 		adminWindow.questionButtonShowAnswer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
